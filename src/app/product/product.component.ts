@@ -1,6 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Iproduct } from '../shared/model/product';
 import { products } from '../shared/const/product';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { GetComponentComponent } from '../get-component/get-component.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product',
@@ -74,6 +77,7 @@ export class ProductComponent implements OnInit {
 
     this.isEditMode = true;
   }
+})
 
   onProdUpdate() {
     if (this.edit_id) {

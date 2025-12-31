@@ -7,13 +7,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { ProductComponent } from './product/product.component';
+import { GetComponentComponent } from './get-component/get-component.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent
+    ProductComponent,
+    GetComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +26,9 @@ import { ProductComponent } from './product/product.component';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
