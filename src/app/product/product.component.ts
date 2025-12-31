@@ -1,6 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Iproduct } from '../shared/model/product';
 import { products } from '../shared/const/product';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { GetComponentComponent } from '../get-component/get-component.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +12,11 @@ import { products } from '../shared/const/product';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _matdialog : MatDialog,
+    private _matsnack : MatSnackBar
+  
+  ) { }
 
   ngOnInit(): void {
   }
@@ -58,10 +65,26 @@ export class ProductComponent implements OnInit {
       this.Productcategory.nativeElement.value = "";
       this.ProductImage.nativeElement.value = "";
     }
+}
 
+onremove(id:string){
 
+let MatDialogRef = this._matdialog.open(GetComponentComponent);
+MatDialogRef.afterClosed()
+.subscribe((res)=>{
+  if(res){
 
+  let getindex = this.productsArray.findIndex(s=>s.id === id)
+  this.productsArray.splice(getindex,1)
+
+  this._matsnack.open(`this id ${id} remove succefully`,"Close",{
+    horizontalPosition: 'center',
+    verticalPosition: 'top',
+    duration: 2000
+  })
   }
+})
 
+}
 
 }
