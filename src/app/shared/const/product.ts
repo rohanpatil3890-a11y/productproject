@@ -45,7 +45,15 @@ export const products: Array<Iproduct> = [
     rating: 4.8,
     category: 'Headphones',
     img: 'https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/121205-airpods-max.png'
-  },
+  },{
+  id: "137",
+  title: 'OnePlus 12',
+  description: 'Flagship OnePlus smartphone with Snapdragon processor and fast charging.',
+  price: 69999,
+  rating: 4.6,
+  category: 'Mobile',
+  img: 'https://www.mobiledokan.com/media/oneplus-12-flowy-emerald-official-image_2.webp'
+},
   {
     id: "128",
     title: 'JBL Live 660NC',
