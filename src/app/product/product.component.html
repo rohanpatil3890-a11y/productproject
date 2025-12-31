@@ -1,0 +1,73 @@
+<div class="mt-5">
+  <div class="row m-0">
+    <div class="col-md-10 offset-md-1">
+      <div class="card p-3">
+        <div class="form-group d-flex justify-content-between align-item-center">
+          <label for="ProductTitle" class="mr-2">Title:</label>
+          <input type="text" #ProductTitle class="form-control ml-2">
+          <label for="Productcategory" class="ml-2">Category:</label>
+          <input type="text" #Productcategory class="form-control ml-2">
+        </div>
+
+        <div class="form-group d-flex justify-content-between align-item-center">
+          <label for="Productprice" class="mr-2">Price:</label>
+          <input type="text" #Productprice class="form-control ml-2">
+          <label for="Productrating" class="ml-2">Rating:</label>
+          <select #Productrating class="form-control ml-2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Productdescription">Description:</label>
+          <textarea type="text" #Productdescription class="form-control"></textarea>
+          <label for="ProductImage">Image Url :</label>
+          <input type="text" #ProductImage class="form-control">
+        </div>
+        <button
+         (click)="AddProductCard()"
+        mat-raised-button color="primary" class="AddBtn">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <mat-card class="product-card d-flex flex-column h-100" *ngFor="let p of productsArray">
+
+    <img mat-card-image [src]="p.img" alt="product">
+
+    <mat-card-content>
+      <mat-chip color="primary" selected>{{ p.category }}</mat-chip>
+
+      <h2 class="title">{{ p.title }}</h2>
+
+      <p class="desc">{{ p.description }}</p>
+
+      <div class="info">
+        <span class="price">₹{{ p.price}}</span>
+        <span class="rating">
+          <mat-icon color="warn">star</mat-icon>
+          {{ p.rating }}
+        </span>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex justify-content-between">
+      <button mat-stroked-button color="primary">
+        Edit
+      </button>
+      <button mat-stroked-button color="accent">
+        Remove
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>
